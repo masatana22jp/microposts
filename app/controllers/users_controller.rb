@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-    def create
-    @user = User.new(user_params)
+  def create
+      @user = User.new(user_params)
     if @user.save
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
@@ -22,8 +22,9 @@ class UsersController < ApplicationController
   end
   
   def update
-    if @user.update(user_params)
-      redirect_to root_path , notice: 'Profile updated'
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
     else
       render 'edit'
     end
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
                                  :password_confirmation)
   end
   
-   def set_user
+  def set_user
     @user = User.find(params[:id])
   end
   
