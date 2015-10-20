@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016102408) do
+ActiveRecord::Schema.define(version: 20151020112452) do
 
   create_table "microposts", force: :cascade do |t|
     t.integer  "user_id"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20151016102408) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "area"
     t.string   "zone"
     t.text     "profile"
   end
