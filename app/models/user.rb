@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   has_many :microposts
+  
+  def feed_items
+    Micropost.where(user_id: following_user_ids + [self.id])
+  end
 end
